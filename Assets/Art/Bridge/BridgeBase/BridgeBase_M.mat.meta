@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Bridge/BridgeBase/BridgeBase_M.mat.meta
+guid: d50fab5524084f340bf5505eb59cbab0
+========
+guid: ffec444f41d425c489e4fc914ea9213f
+>>>>>>>> origin/reimplementation/run:Assets/Art/Char/Character/ZeriphAnimations/Zeriph/MasterAnimator.controller.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
