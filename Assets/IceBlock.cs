@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IceBlock : MonoBehaviour,IMelteable
 {
+    public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
    [SerializeField]public float currentTemperature { get; set; }
