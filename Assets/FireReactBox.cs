@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
 {
+    public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
     public float currentTemperature { get; set; }
@@ -93,6 +95,8 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
 
     }
 
+   
+
     private void BurnBox()
     {
         TorchParticle.gameObject.SetActive(true);
@@ -100,9 +104,13 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
     }
     
     public void Cold()
+    {
+        if (currentTemperature > 0)
         {
-           
+            currentTemperature -= 1;
+            ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
         }
+    }
 
     //add a velocity that moves the box in the oposite direction of the playerm, for this we need a drag force, a ramping, and a direction vector.
 }

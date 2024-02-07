@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireReactTorch : MonoBehaviour, IMelteable
 {
+    public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
     public float currentTemperature { get; set; }
