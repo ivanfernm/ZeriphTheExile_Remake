@@ -1574,7 +1574,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.55
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4845368562317092051, guid: 43fab5a9be1551a49bebb1eafed5f2fa, type: 3}
+    - {fileID: 298828513665673975, guid: 43fab5a9be1551a49bebb1eafed5f2fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 43fab5a9be1551a49bebb1eafed5f2fa, type: 3}
 --- !u!23 &171196805699018772
 MeshRenderer:
