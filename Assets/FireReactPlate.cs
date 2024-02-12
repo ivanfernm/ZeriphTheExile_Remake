@@ -3,36 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
+public class FireReactPlate : MonoBehaviour,IMelteable
 {
+    [field: Header("Melting Properties")]
     public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
     public float currentTemperature { get; set; }
-    
     public bool IsMelted { get; set; }
-    public float Heat { get; set; }
-
-    [SerializeField] float ActiveHeat;
-
-    [SerializeField] IHeatEmmiter heatEmmiter;
-
+    
+    [SerializeField]public  IHeatEmmiter heatEmmiter;
+    
     [Header("UI")]
     [SerializeField] private GameObject HeatBar;
     [SerializeField] private GameObject ActiveHeatBar;
+    
+    [Header("VFx")]
+    [SerializeField] private Material _material;
 
-    [Header("VFX")]
-    [SerializeField] private GameObject TorchParticle;
 
-
-
+    [Header("Observers")] private List<IObserver> observers = new List<IObserver>();
+    void Start()
+    {
+        MeltingPoint = 100;
+        MeltingSpeed = .8f;
+        currentTemperature = 0;
+        IsMelted = false;
+    }
+    
     public void Melt(IHeatEmmiter heatEmmiter)
     {
         if (currentTemperature >= MeltingPoint)
         {
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
-            BurnBox();
-            Heat = ActiveHeat;
+            Activate();
             return;
         }
         else
@@ -42,17 +46,22 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
         }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Cold()
     {
-        MeltingPoint = 100;
-        MeltingSpeed = .8f;
-        currentTemperature = 0;
-        IsMelted = false;    
-        Heat = 0;
+        if (currentTemperature >= 0)
+        {
+            currentTemperature -= 1;
+            currentTemperature = Mathf.Clamp(currentTemperature, 0, 100);
+            ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            Debug.Log("Cold");
+        }
     }
-
+    
+    public void Activate()
+    {
+        NotifyObservers();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
 
@@ -67,13 +76,13 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
                 var bar = Instantiate(HeatBar);
                 ActiveHeatBar = bar;
                 ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
-                ActiveHeatBar.GetComponent<RadialBar>().SetName("BOX");
+                ActiveHeatBar.GetComponent<RadialBar>().SetName("INTERUPTOR");
             }
 
         }
-
+     
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         var a = other.GetComponentInChildren<IHeatEmmiter>();
@@ -92,25 +101,27 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
             Melt(a);
         }
 
-
     }
 
-   
-
-    private void BurnBox()
+    private void OnTriggerExit(Collider other)
     {
-        TorchParticle.gameObject.SetActive(true);
-        IsMelted = true;
+        Cold();
     }
-    
-    public void Cold()
+
+    public void RegisterObserver(IObserver observer)
     {
-        if (currentTemperature > 0)
+        if (!observers.Contains(observer))
         {
-            currentTemperature -= 1;
-            ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            observers.Add(observer);
         }
     }
 
-    //add a velocity that moves the box in the oposite direction of the playerm, for this we need a drag force, a ramping, and a direction vector.
+    public void NotifyObservers()
+    {
+        foreach (IObserver observer in observers)
+        {
+            observer.OnNotify();
+        }
+    }
+    
 }
