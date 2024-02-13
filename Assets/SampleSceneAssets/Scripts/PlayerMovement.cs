@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
     public float speed = 6.0f;
+    public float minSpeed = 6.0f; // Added min speed
     public float maxSpeed = 12.0f; // Added max speed
-    public float speedIncreaseRate = 0.1f; // Added speed increase rate
-    public float speedDecreaseRate = 0.2f; // Added speed decrease rate
-    public float shiftSpeedIncreaseRate = 0.2f; // Added shift speed increase rate
+    public float speedIncreaseRate =2f; // Added speed increase rate
+    public float speedDecreaseRate = 0.3f; // Added speed decrease rate
+    public float shiftSpeedIncreaseRate = 2f; // Added shift speed increase rate
     public float turnSmoothTime = 0.1f;
     public float gravity = -9.81f;
     public Transform groundCheck;
@@ -69,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // Decrease speed to 0 when player stops pressing the axis
-            speed = Mathf.Max(speed - speedDecreaseRate * Time.deltaTime, 0);
+            speed = Mathf.Max(speed - speedDecreaseRate * Time.deltaTime, minSpeed);
+            
 
             // Update the animator float PlayerWalkVelocity to 0 when player stops pressing the axis
             animator.SetFloat("PlayerWalkVelocity", 0);

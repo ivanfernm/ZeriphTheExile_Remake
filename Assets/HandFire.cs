@@ -10,7 +10,7 @@ public class HandFire : MonoBehaviour, IHeatEmmiter
     public float Heat { get; set; }
 
     public float intensity;
-    public float Fixer = .1f;
+    public float Fixer = .01f;
     
     
     public VisualEffect visualEffect;
@@ -36,7 +36,14 @@ public class HandFire : MonoBehaviour, IHeatEmmiter
     public void SetIntensity(float intensityValue)
     {
         intensity = intensityValue * Fixer;
-        visualEffect.SetFloat("Intensity", intensity);
-        lightControl.intensity = lightControl.intensity * Mathf.Clamp(intensity,0,10);
+        var intensityclamp = Mathf.Clamp(intensity, 0, 2f);
+        lightControl.intensity = lightControl.intensity * intensityclamp;
+        Debug.Log("PreClamp Intensity: " + lightControl.intensity);
+        lightControl.intensity = Mathf.Clamp(lightControl.intensity, 10000, 3000000f);
+        //Debug.Log("PostClamp Intensity: " + intensity);
+
+        
+        visualEffect.SetFloat("Intensity", intensityclamp);
+
     }
 }

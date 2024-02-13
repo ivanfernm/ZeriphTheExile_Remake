@@ -10,6 +10,7 @@ public class LoadScreenManager : MonoBehaviour
     
     public GameObject loadScreenObject;
     public Text loadingText;
+    public Image loadingImage;
 
 
     private void Awake()
@@ -33,6 +34,17 @@ public class LoadScreenManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine(string sceneName)
     {
         loadScreenObject.SetActive(true); // Show load screen
+
+        //change the image fill as the scene loads
+        loadingImage.fillAmount = 0;
+        
+        // Optional: fake loading time
+        for (float i = 0; i < 1; i += Time.deltaTime)
+        {
+            loadingImage.fillAmount = i;
+            yield return null;
+        }
+
 
         // Optional: fake load time for demonstration
         yield return new WaitForSeconds(2);
