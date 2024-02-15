@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6.0f;
     public float minSpeed = 6.0f; // Added min speed
     public float maxSpeed = 12.0f; // Added max speed
-    public float speedIncreaseRate =2f; // Added speed increase rate
+    public float speedIncreaseRate = 2f; // Added speed increase rate
     public float speedDecreaseRate = 0.3f; // Added speed decrease rate
     public float shiftSpeedIncreaseRate = 2f; // Added shift speed increase rate
     public float turnSmoothTime = 0.1f;
@@ -23,13 +23,17 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 2.0f; // Added jump height
     public Animator animator; // Added animator
+    public bool canDrag;
+    public bool isDragging = false;
 
     float turnSmoothVelocity;
     Vector3 velocity;
     bool isGrounded;
+    public float dragRayLenght = 100;
 
     private void Update()
     {
+
         // Check if the player is grounded
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -46,8 +50,10 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             // Smoothly rotate the player to face the direction of movement
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
+                                Camera.main.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             // Increase speed based on how much time the player is moving
@@ -71,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Decrease speed to 0 when player stops pressing the axis
             speed = Mathf.Max(speed - speedDecreaseRate * Time.deltaTime, minSpeed);
-            
+
 
             // Update the animator float PlayerWalkVelocity to 0 when player stops pressing the axis
             animator.SetFloat("PlayerWalkVelocity", 0);
@@ -87,4 +93,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
 }

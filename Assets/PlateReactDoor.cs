@@ -23,12 +23,14 @@ public class PlateReactDoor : MonoBehaviour, IObserver
     void openDoor()
     {
         isActivated = true;
+        gameObject.SetActive(false);
         Debug.Log("Door is open");
     }
     
     void closeDoor()
     {
         isActivated = false;
+        gameObject.SetActive(true);
         Debug.Log("Door is closed");    
     }
     

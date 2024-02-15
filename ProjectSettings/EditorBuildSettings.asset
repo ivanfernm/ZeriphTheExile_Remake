@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/InitialArea_2.unity
     guid: a21fed5d677c92b4692e0cb5204d11c6
+  - enabled: 1
+    path: Assets/Scenes/Levels/MainHub.unity
+    guid: 9477bf63781b22147bfe3345655426cd
   m_configObjects: {}

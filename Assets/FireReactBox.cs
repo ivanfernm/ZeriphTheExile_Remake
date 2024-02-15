@@ -30,7 +30,7 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
     {
         if (currentTemperature >= MeltingPoint)
         {
-            ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            CreateUI(currentTemperature);
             BurnBox();
             Heat = ActiveHeat;
             return;
@@ -38,10 +38,14 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
         else
         {
             currentTemperature += heatEmmiter.Heat * MeltingSpeed;
-            ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            CreateUI(currentTemperature);
         }
     }
 
+    private void CreateUI(float currentTemp)
+    {
+        ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemp);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +61,9 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
     {
 
         var a = other.gameObject.GetComponentInChildren<IHeatEmmiter>();
+        var b = other.gameObject.GetComponentInChildren<HandFire>();
 
-        if (a != null)
+        if (a != null && b != null)
         {
             heatEmmiter = a;
 
@@ -73,12 +78,13 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
         }
 
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         var a = other.GetComponentInChildren<IHeatEmmiter>();
+        var b = other.gameObject.GetComponentInChildren<HandFire>();
 
-        if (a != null)
+        if (a != null && b != null)
         {
 
             if (ActiveHeatBar == null)

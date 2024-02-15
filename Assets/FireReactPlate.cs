@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class FireReactPlate : MonoBehaviour,IMelteable
 {
+    public enum active
+    {
+        active,
+        desactive
+    }
+    
+    
     [field: Header("Melting Properties")]
     public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
     public float currentTemperature { get; set; }
     public bool IsMelted { get; set; }
+
+    public bool tempIsIncreasing; 
     
     [SerializeField]public  IHeatEmmiter heatEmmiter;
     
@@ -33,6 +42,7 @@ public class FireReactPlate : MonoBehaviour,IMelteable
     
     public void Melt(IHeatEmmiter heatEmmiter)
     {
+        tempIsIncreasing = true;
         if (currentTemperature >= MeltingPoint)
         {
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
@@ -41,6 +51,7 @@ public class FireReactPlate : MonoBehaviour,IMelteable
         }
         else
         {
+            
             currentTemperature += heatEmmiter.Heat * MeltingSpeed;
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
         }
@@ -48,17 +59,18 @@ public class FireReactPlate : MonoBehaviour,IMelteable
 
     public void Cold()
     {
-        if (currentTemperature >= 0)
+        tempIsIncreasing = false;
+        if (currentTemperature > 0)
         {
             currentTemperature -= 1;
             currentTemperature = Mathf.Clamp(currentTemperature, 0, 100);
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
-            Debug.Log("Cold");
         }
     }
     
     public void Activate()
     {
+      
         NotifyObservers();
     }
     
@@ -73,15 +85,13 @@ public class FireReactPlate : MonoBehaviour,IMelteable
 
             if (heatEmmiter != null)
             {
-                var bar = Instantiate(HeatBar);
-                ActiveHeatBar = bar;
-                ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
-                ActiveHeatBar.GetComponent<RadialBar>().SetName("INTERUPTOR");
+               CreateUI();
             }
 
         }
      
     }
+
     
     private void OnTriggerStay(Collider other)
     {
@@ -92,13 +102,14 @@ public class FireReactPlate : MonoBehaviour,IMelteable
 
             if (ActiveHeatBar == null)
             {
-                var bar = Instantiate(HeatBar);
-                ActiveHeatBar = bar;
-                ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
-                ActiveHeatBar.GetComponent<RadialBar>().SetName("BOX");
+                CreateUI();
 
             }
             Melt(a);
+        }
+        else
+        {
+            Cold();
         }
 
     }
@@ -107,7 +118,7 @@ public class FireReactPlate : MonoBehaviour,IMelteable
     {
         Cold();
     }
-
+    
     public void RegisterObserver(IObserver observer)
     {
         if (!observers.Contains(observer))
@@ -123,5 +134,11 @@ public class FireReactPlate : MonoBehaviour,IMelteable
             observer.OnNotify();
         }
     }
-    
+    private void CreateUI()
+    {
+        var bar = Instantiate(HeatBar);
+        ActiveHeatBar = bar;
+        ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
+        ActiveHeatBar.GetComponent<RadialBar>().SetName("INTERUPTOR");
+    }
 }
