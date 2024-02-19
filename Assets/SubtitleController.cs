@@ -35,6 +35,7 @@ public class SubtitleController : MonoBehaviour
         }
     }
   
+  [ContextMenu("LoadSubtitle")]
     public void LoadSubtitlesFromFile(string filePath)
     {
         string fullPath = Path.Combine(Application.dataPath, filePath);

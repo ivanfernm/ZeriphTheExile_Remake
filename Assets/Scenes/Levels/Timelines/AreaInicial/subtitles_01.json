@@ -1,24 +1,16 @@
 {
   "subtitles": [
     {
-      "text": "Where i'm I?",
-      "startTime": 7.0,
-      "endTime": 10.0
+      "text": "Where i'm I?"
     },
     {
-      "text": "Why its this dark",
-      "startTime": 11.0,
-      "endTime": 14.0
+      "text": "Why its this dark"
     },
     {
-      "text": "I must create a flame to light the place!",
-      "startTime": 15.0,
-      "endTime": 20.0
+      "text": "I must create a flame to light the place!"
     },
     {
-      "text": "Try pressing F to  create a flame",
-      "startTime": 21.0,
-      "endTime": 40.0
+      "text": "Try pressing F to  create a flame"
     }
   ]
 }

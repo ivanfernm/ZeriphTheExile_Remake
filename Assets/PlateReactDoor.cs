@@ -14,7 +14,6 @@ public class PlateReactDoor : MonoBehaviour, IObserver
         fireReactPlate.RegisterObserver(this);
     }
     
-
     public void OnNotify()
     {
         ChangeDoorState();
