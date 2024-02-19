@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,9 @@ public class DraggableObject : MonoBehaviour,IDragable,IPushable
         pushDirection.Normalize();
 
         // Apply the push force to this object
-        GetComponent<Rigidbody>().AddForce(-pushDirection * pushForce, ForceMode.Impulse);
+       // GetComponent<Rigidbody>().AddForce(-pushDirection * pushForce, ForceMode.Impulse);
+       transform.position += -pushDirection * pushForce * Time.deltaTime;
+       
     }
 
     public void StopPush()
@@ -40,9 +43,19 @@ public class DraggableObject : MonoBehaviour,IDragable,IPushable
         if (a != null)
         {
             Push(collision);
-            Debug.Log("Player");
+            //Debug.Log("Player");
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        var a = collision.gameObject.GetComponent<DragMechanich>();
+
+        if (a != null)
+        {
+            Push(collision);
+            //Debug.Log("Player");
+        }
+    }
 }
 
