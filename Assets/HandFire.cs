@@ -23,9 +23,6 @@ public class HandFire : MonoBehaviour, IHeatEmmiter
         visualEffect = gameObject.GetComponentInChildren<VisualEffect>();
 
         //get the propertybinder and assign the hand bone to it
-        
-        visualEffect.SetVector3("Position", HandBone.transform.position);
-
         Heat = .5f;
         SetIntensity(Heat);
 
@@ -45,5 +42,10 @@ public class HandFire : MonoBehaviour, IHeatEmmiter
         
         visualEffect.SetFloat("Intensity", intensityclamp);
 
+    }
+
+    public void SetBone(Vector3 bonePosition)
+    {
+        transform.position = bonePosition;
     }
 }

@@ -10,6 +10,7 @@ public class RadialBar : MonoBehaviour
     public Image barImage;
     public float currentfill;
     public float maxFill;
+    public bool itDestroyOnFull = true;
 
     //text mesh pro text 
     public TextMeshProUGUI text;    
@@ -39,7 +40,7 @@ public class RadialBar : MonoBehaviour
 
     private void CheckIfFull()
     {
-        if (currentfill >= maxFill)
+        if (itDestroyOnFull == true && currentfill >= maxFill)
         {
             Destroy(gameObject);
         }

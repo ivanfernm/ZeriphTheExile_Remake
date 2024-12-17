@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireReactDoor : MonoBehaviour,IMelteable
+public class FireReactDoor : DetectFire,IMelteable
 {
     [SerializeField] IHeatEmmiter heatEmmiter;
 
@@ -20,6 +20,8 @@ public class FireReactDoor : MonoBehaviour,IMelteable
 
     [Header("VFx")]
     [SerializeField] private Material _material;
+
+    [SerializeField] private GameObject _fireDetectionParticle;
 
     public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get ; set; }
@@ -127,5 +129,10 @@ public class FireReactDoor : MonoBehaviour,IMelteable
         currentTemperature -= 1 * MeltingSpeed;
         //update bar
         ActiveHeatBar.GetComponentInChildren<RadialBar>().SetFill(currentTemperature);
+    }
+
+    public override void OnFireEvent()
+    {
+        StartCoroutine(GlobalUtilities.ToggleObjectCoroutine(_fireDetectionParticle, 10f));
     }
 }

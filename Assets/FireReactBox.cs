@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
+public class FireReactBox : DetectFire, IHeatEmmiter, IMelteable
 {
     public float MeltingStartTemperature { get; set; }
     public float MeltingPoint { get; set; }
     public float MeltingSpeed { get; set; }
     public float currentTemperature { get; set; }
-    
+
     public bool IsMelted { get; set; }
     public float Heat { get; set; }
 
@@ -17,14 +17,11 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
 
     [SerializeField] IHeatEmmiter heatEmmiter;
 
-    [Header("UI")]
-    [SerializeField] private GameObject HeatBar;
+    [Header("UI")] [SerializeField] private GameObject HeatBar;
     [SerializeField] private GameObject ActiveHeatBar;
 
-    [Header("VFX")]
-    [SerializeField] private GameObject TorchParticle;
-
-
+    [Header("VFX")] [SerializeField] private GameObject TorchParticle;
+    [SerializeField] private GameObject _fireReactParticle;
 
     public void Melt(IHeatEmmiter heatEmmiter)
     {
@@ -53,13 +50,17 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
         MeltingPoint = 100;
         MeltingSpeed = .8f;
         currentTemperature = 0;
-        IsMelted = false;    
+        IsMelted = false;
         Heat = 0;
+    }
+
+    public override void OnFireEvent()
+    {
+        StartCoroutine(GlobalUtilities.ToggleObjectCoroutine(_fireReactParticle, 2f));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         var a = other.gameObject.GetComponentInChildren<IHeatEmmiter>();
         var b = other.gameObject.GetComponentInChildren<HandFire>();
 
@@ -69,16 +70,22 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
 
             if (heatEmmiter != null)
             {
-                var bar = Instantiate(HeatBar);
-                ActiveHeatBar = bar;
-                ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
-                ActiveHeatBar.GetComponent<RadialBar>().SetName("BOX");
+                if (ActiveHeatBar ==null)
+                {
+                    var bar = Instantiate(HeatBar);
+                    ActiveHeatBar = bar;
+                    ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
+                    ActiveHeatBar.GetComponent<RadialBar>().SetName("BOX");
+                }
+                else
+                {
+                    Melt(a);
+                }
+              
             }
-
         }
-
     }
-    
+
     private void OnTriggerStay(Collider other)
     {
         var a = other.GetComponentInChildren<IHeatEmmiter>();
@@ -86,29 +93,25 @@ public class FireReactBox : MonoBehaviour,IHeatEmmiter,IMelteable
 
         if (a != null && b != null)
         {
-
             if (ActiveHeatBar == null)
             {
                 var bar = Instantiate(HeatBar);
                 ActiveHeatBar = bar;
                 ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
                 ActiveHeatBar.GetComponent<RadialBar>().SetName("BOX");
-
             }
+
             Melt(a);
         }
-
-
     }
 
-   
 
     private void BurnBox()
     {
         TorchParticle.gameObject.SetActive(true);
         IsMelted = true;
     }
-    
+
     public void Cold()
     {
         if (currentTemperature > 0)

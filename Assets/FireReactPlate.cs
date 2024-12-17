@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireReactPlate : MonoBehaviour,IMelteable
+public class FireReactPlate : DetectFire,IMelteable
 {
     public enum active
     {
         active,
         desactive
     }
-    
+
+    public float coldMultiplier = 1;
     
     [field: Header("Melting Properties")]
     public float MeltingStartTemperature { get; set; }
@@ -39,13 +40,19 @@ public class FireReactPlate : MonoBehaviour,IMelteable
         currentTemperature = 0;
         IsMelted = false;
     }
-    
+
+    public override void OnFireEvent()
+    {
+        throw new NotImplementedException();
+    }
+
     public void Melt(IHeatEmmiter heatEmmiter)
     {
         tempIsIncreasing = true;
-        if (currentTemperature >= MeltingPoint)
+        if (currentTemperature >= MeltingPoint )
         {
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            //activo/ notifico a la puerta que se habrio
             Activate();
             return;
         }
@@ -62,9 +69,10 @@ public class FireReactPlate : MonoBehaviour,IMelteable
         tempIsIncreasing = false;
         if (currentTemperature > 0)
         {
-            currentTemperature -= 1;
+            currentTemperature -= 1 * coldMultiplier;
             currentTemperature = Mathf.Clamp(currentTemperature, 0, 100);
             ActiveHeatBar.GetComponent<RadialBar>().SetFill(currentTemperature);
+            Activate();
         }
     }
     
@@ -85,7 +93,11 @@ public class FireReactPlate : MonoBehaviour,IMelteable
 
             if (heatEmmiter != null)
             {
-               CreateUI();
+                if (ActiveHeatBar == null)
+                {
+                    CreateUI();
+                }
+              
             }
 
         }
@@ -109,14 +121,21 @@ public class FireReactPlate : MonoBehaviour,IMelteable
         }
         else
         {
-            Cold();
+
+           // StartCoroutine(WaitForCooling(5f));
         }
 
     }
 
-    private void OnTriggerExit(Collider other)
+    IEnumerator WaitForCooling(float secondsToWait)
     {
         Cold();
+        yield return new WaitForSeconds(secondsToWait);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        StartCoroutine(WaitForCooling(5f));
     }
     
     public void RegisterObserver(IObserver observer)
@@ -138,6 +157,7 @@ public class FireReactPlate : MonoBehaviour,IMelteable
     {
         var bar = Instantiate(HeatBar);
         ActiveHeatBar = bar;
+        bar.GetComponent<RadialBar>().itDestroyOnFull = false;
         ActiveHeatBar.transform.SetParent(CanvaManager.instance.HeatMenuPannel.transform, false);
         ActiveHeatBar.GetComponent<RadialBar>().SetName("INTERUPTOR");
     }

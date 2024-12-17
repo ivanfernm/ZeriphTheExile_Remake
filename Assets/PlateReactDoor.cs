@@ -35,13 +35,13 @@ public class PlateReactDoor : MonoBehaviour, IObserver
     
     void ChangeDoorState()
     {
-        if (isActivated)
+        if (fireReactPlate.tempIsIncreasing)
         {
-            closeDoor();
+            openDoor();
         }
         else
         {
-            openDoor();
+            closeDoor();
         }
     }
 }

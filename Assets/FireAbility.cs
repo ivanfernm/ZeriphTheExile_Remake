@@ -1,8 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition; // HDRP namespace
 
 public class FireAbility : MonoBehaviour
 {
+    //obserservable class 
+    private HashSet<DetectFire> _observers = new HashSet<DetectFire>(); 
+    
+    //
     
     public GameObject fireEffectPrefab; // Assign your fire particle effect prefab here
     [SerializeField]private GameObject currentFireEffect;
@@ -38,7 +43,7 @@ public class FireAbility : MonoBehaviour
         if (currentFireEffect == null)
         {
             // Create fire effect
-            currentFireEffect = Instantiate(fireEffectPrefab, transform.position, Quaternion.identity);
+            currentFireEffect = Instantiate(fireEffectPrefab, boneHand.transform.position, Quaternion.identity);
             currentFireEffect.GetComponent<HandFire>().HandBone = boneHand;
             currentFireEffect.transform.parent = boneHand.transform;
             
@@ -47,6 +52,7 @@ public class FireAbility : MonoBehaviour
             fire.SetIntensity(intensity);
             isOnFire = true;
             playerAnimator.SetBool("IsTorching", isOnFire);
+            ActivateFireEvent();
 
         }
         else
@@ -83,10 +89,7 @@ public class FireAbility : MonoBehaviour
             }
 
         }
-
-    
-       
-
+        
         //fireLight.intensity += scroll * intensityChangeRate;
         //fireLight.intensity = Mathf.Clamp(fireLight.intensity, 0, 10); // Adjust the min and max values as needed
 
@@ -94,4 +97,68 @@ public class FireAbility : MonoBehaviour
         //var main = fireParticles.main;
        // main.startSize = Mathf.Clamp(originalStartSize * fireLight.intensity, originalStartSize, originalStartSize * 2);
     }
+
+    #region observable
+
+    public void RegisterObserver(DetectFire observer)
+    {
+        if (!_observers.Contains(observer))
+        {
+            _observers.Add(observer);
+        }
+    }
+
+    public void UnregisterObserver(DetectFire observer)
+    {
+        if (_observers.Contains(observer))
+        {
+            _observers.Remove(observer);
+        }
+    }
+
+    public void NotifyObservers()
+    {
+        //create list to avoid modification wile executing
+        HashSet<DetectFire> observersCopy = _observers;
+
+        foreach (var observer in observersCopy)
+        {
+            if (observer != null)
+            {
+                try
+                {
+                    observer.OnFireEvent();
+
+                }
+                catch
+                {
+                    Debug.LogError($"Error notifying observer ");
+                }
+                
+            }
+        }
+    }
+
+    public void ActivateFireEvent()
+    {
+        HashSet<DetectFire> observersCopy = new HashSet<DetectFire>(_observers);
+        
+        foreach (var observer in observersCopy)
+        {
+            if (observer != null)
+            {
+                try
+                {
+                    observer.OnFireEvent();
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"Error notifying observer {observer.name}: {e.Message}");
+                }
+            }
+        }
+    }
+    
+
+    #endregion
 }
