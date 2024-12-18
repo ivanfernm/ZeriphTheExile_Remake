@@ -130,7 +130,7 @@ public class FireReactPlate : DetectFire,IMelteable
     IEnumerator WaitForCooling(float secondsToWait)
     {
         Cold();
-        yield return new WaitForSeconds(secondsToWait);
+        yield return null;
     }
 
     private void OnTriggerExit(Collider other)

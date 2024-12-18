@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1189881835667024244}
   - component: {fileID: 6677196613693205401}
   - component: {fileID: 8455517246572558696}
+  - component: {fileID: 104253583906540485}
   m_Layer: 14
   m_Name: BreakableRock
   m_TagString: Untagged
@@ -126,7 +127,7 @@ BoxCollider:
   m_GameObject: {fileID: 6616804418587604905}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.241395, y: 1.6852806, z: 3.8476868}
   m_Center: {x: 0.44119787, y: -0.10727477, z: -0.12388611}
@@ -139,7 +140,21 @@ BoxCollider:
   m_GameObject: {fileID: 6616804418587604905}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.0543118, y: 2.0766854, z: 3.2228394}
   m_Center: {x: 1.1940813, y: 1.7179878, z: 0.037597656}
+--- !u!64 &104253583906540485
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6616804418587604905}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6831440722055496184, guid: 22880e2cd8cba5e46b782aa5f723190f, type: 3}

@@ -35,7 +35,7 @@ public class HandFire : MonoBehaviour, IHeatEmmiter
         intensity = intensityValue * Fixer;
         var intensityclamp = Mathf.Clamp(intensity, 0, 2f);
         lightControl.intensity = lightControl.intensity * intensityclamp;
-        Debug.Log("PreClamp Intensity: " + lightControl.intensity);
+       // Debug.Log("PreClamp Intensity: " + lightControl.intensity);
         lightControl.intensity = Mathf.Clamp(lightControl.intensity, 10000, 3000000f);
         //Debug.Log("PostClamp Intensity: " + intensity);
 

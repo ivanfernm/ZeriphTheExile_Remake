@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: 3e9943d600cbcbc459f9dcdfd4be2ef2
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 4939672676723062280
+    second: body|body|Take 001|BaseLayer
+  - first:
+      74: 6771229184326282325
+    second: body|CATRig LWingArm13|Take 001|BaseLayer
+  - first:
+      74: 113991676858331040
+    second: body|CATRig RWingArm13|Take 001|BaseLayer
+  - first:
+      74: -7944175196307705108
+    second: body|CATRig5BoneHead|Take 001|BaseLayer
+  - first:
+      74: -5261787074432469567
+    second: body|CATRigBoneJaw|Take 001|BaseLayer
+  - first:
+      74: 763685707499072096
+    second: body|CATRigHubChest|Take 001|BaseLayer
+  - first:
+      74: -5185134260179304697
+    second: body|CATRigHubPelvis|Take 001|BaseLayer
+  - first:
+      74: 4038039592063171909
+    second: body|CATRigLArm11|Take 001|BaseLayer
+  - first:
+      74: -3530190510493101174
+    second: body|CATRigLArm12|Take 001|BaseLayer
+  - first:
+      74: -5865158957956863481
+    second: body|CATRigLArm13|Take 001|BaseLayer
+  - first:
+      74: -17659072835920037
+    second: body|CATRigLArm1|Take 001|BaseLayer
+  - first:
+      74: -7436425156030175489
+    second: body|CATRigLArm3|Take 001|BaseLayer
+  - first:
+      74: -2307461780988560218
+    second: body|CATRigLArmCollarbone|Take 001|BaseLayer
+  - first:
+      74: 6767741315300415039
+    second: body|CATRigLArmDigit11|Take 001|BaseLayer
+  - first:
+      74: -4903101913362374758
+    second: body|CATRigLArmDigit12|Take 001|BaseLayer
+  - first:
+      74: 7511962916247575866
+    second: body|CATRigLArmDigit13|Take 001|BaseLayer
+  - first:
+      74: 862995303971232650
+    second: body|CATRigLArmDigit21|Take 001|BaseLayer
+  - first:
+      74: 7709639698168620438
+    second: body|CATRigLArmDigit22|Take 001|BaseLayer
+  - first:
+      74: -3762250916797097472
+    second: body|CATRigLArmDigit23|Take 001|BaseLayer
+  - first:
+      74: 6070844738768278605
+    second: body|CATRigLArmDigit31|Take 001|BaseLayer
+  - first:
+      74: -2140030346722408451
+    second: body|CATRigLArmDigit32|Take 001|BaseLayer
+  - first:
+      74: 5911199699444035530
+    second: body|CATRigLArmDigit33|Take 001|BaseLayer
+  - first:
+      74: -1930707078493915353
+    second: body|CATRigLArmDigit41|Take 001|BaseLayer
+  - first:
+      74: 4817303447252116180
+    second: body|CATRigLArmDigit42|Take 001|BaseLayer
+  - first:
+      74: -4045772567077895093
+    second: body|CATRigLArmDigit43|Take 001|BaseLayer
+  - first:
+      74: 4180743051132810176
+    second: body|CATRigLArmPalm|Take 001|BaseLayer
+  - first:
+      74: -8842863534697033106
+    second: body|CATRigLLeg1|Take 001|BaseLayer
+  - first:
+      74: -2254624739828965490
+    second: body|CATRigLLeg2|Take 001|BaseLayer
+  - first:
+      74: 1609187924917059428
+    second: body|CATRigLLeg3|Take 001|BaseLayer
+  - first:
+      74: 4639336343698996340
+    second: body|CATRigLLegAnkle|Take 001|BaseLayer
+  - first:
+      74: -937036331307273872
+    second: body|CATRigLLegDigit11|Take 001|BaseLayer
+  - first:
+      74: 3367009376389512770
+    second: body|CATRigLLegDigit12|Take 001|BaseLayer
+  - first:
+      74: -3646623396389050467
+    second: body|CATRigLLegDigit13|Take 001|BaseLayer
+  - first:
+      74: 2191448028679176315
+    second: body|CATRigLLegDigit21|Take 001|BaseLayer
+  - first:
+      74: -3636890269927422841
+    second: body|CATRigLLegDigit22|Take 001|BaseLayer
+  - first:
+      74: -9152028067668643395
+    second: body|CATRigLLegDigit23|Take 001|BaseLayer
+  - first:
+      74: -7847991311102524647
+    second: body|CATRigLLegDigit31|Take 001|BaseLayer
+  - first:
+      74: -7610449441488745955
+    second: body|CATRigLLegDigit32|Take 001|BaseLayer
+  - first:
+      74: 4376385967013885298
+    second: body|CATRigLLegDigit33|Take 001|BaseLayer
+  - first:
+      74: 2029592657384208130
+    second: body|CATRigLLegPlatform|Take 001|BaseLayer
+  - first:
+      74: -7537553884623068064
+    second: body|CATRigLmidEye|Take 001|BaseLayer
+  - first:
+      74: -6569834003281924860
+    second: body|CATRigLWingArm10|Take 001|BaseLayer
+  - first:
+      74: 4325314557279695002
+    second: body|CATRigLWingArm11|Take 001|BaseLayer
+  - first:
+      74: 8208347202183467839
+    second: body|CATRigLWingArm12|Take 001|BaseLayer
+  - first:
+      74: 5134345976211063320
+    second: body|CATRigLWingArm14|Take 001|BaseLayer
+  - first:
+      74: -3836404844486644677
+    second: body|CATRigLWingArm15|Take 001|BaseLayer
+  - first:
+      74: 1178245973886645504
+    second: body|CATRigLWingArm16|Take 001|BaseLayer
+  - first:
+      74: -184778022584010048
+    second: body|CATRigLWingArm17|Take 001|BaseLayer
+  - first:
+      74: -5567815470230331593
+    second: body|CATRigLWingArm18|Take 001|BaseLayer
+  - first:
+      74: 2713995238190403316
+    second: body|CATRigLWingArm19|Take 001|BaseLayer
+  - first:
+      74: -1260873259241718069
+    second: body|CATRigLWingArm20|Take 001|BaseLayer
+  - first:
+      74: -7852951207990416358
+    second: body|CATRigLWingArm21|Take 001|BaseLayer
+  - first:
+      74: 7039474448750076342
+    second: body|CATRigLWingArm31|Take 001|BaseLayer
+  - first:
+      74: -6095391579475334776
+    second: body|CATRigLWingArm32|Take 001|BaseLayer
+  - first:
+      74: 4734474161215036089
+    second: body|CATRigLWingArm33|Take 001|BaseLayer
+  - first:
+      74: -6283846577816812134
+    second: body|CATRigLWingArm4|Take 001|BaseLayer
+  - first:
+      74: -2624431727034415483
+    second: body|CATRigLWingArm5|Take 001|BaseLayer
+  - first:
+      74: -2162872324746491487
+    second: body|CATRigLWingArm6|Take 001|BaseLayer
+  - first:
+      74: 6109915530379647421
+    second: body|CATRigLWingArm7|Take 001|BaseLayer
+  - first:
+      74: 6312017328068025368
+    second: body|CATRigLWingArm8|Take 001|BaseLayer
+  - first:
+      74: -4535682028411751535
+    second: body|CATRigLWingArm9|Take 001|BaseLayer
+  - first:
+      74: -5252083900894564911
+    second: body|CATRigNeck1|Take 001|BaseLayer
+  - first:
+      74: -7512228056407262109
+    second: body|CATRigNeck2|Take 001|BaseLayer
+  - first:
+      74: -3108685265135982599
+    second: body|CATRigNeck3|Take 001|BaseLayer
+  - first:
+      74: -3068538299098985664
+    second: body|CATRigNeck4|Take 001|BaseLayer
+  - first:
+      74: 1965650683032826947
+    second: body|CATRigNeck5|Take 001|BaseLayer
+  - first:
+      74: -6054682775647834288
+    second: body|CATRigRArm11|Take 001|BaseLayer
+  - first:
+      74: 1283222529958803132
+    second: body|CATRigRArm12|Take 001|BaseLayer
+  - first:
+      74: 4861543128813110191
+    second: body|CATRigRArm13|Take 001|BaseLayer
+  - first:
+      74: -212335559036586849
+    second: body|CATRigRArm1|Take 001|BaseLayer
+  - first:
+      74: -6713344826402947608
+    second: body|CATRigRArm3|Take 001|BaseLayer
+  - first:
+      74: 3639977998557616860
+    second: body|CATRigRArmCollarbone|Take 001|BaseLayer
+  - first:
+      74: -8710664952801360154
+    second: body|CATRigRArmDigit11|Take 001|BaseLayer
+  - first:
+      74: -4748533429869073981
+    second: body|CATRigRArmDigit12|Take 001|BaseLayer
+  - first:
+      74: 6970271228172923114
+    second: body|CATRigRArmDigit13|Take 001|BaseLayer
+  - first:
+      74: -6949326239221901183
+    second: body|CATRigRArmDigit21|Take 001|BaseLayer
+  - first:
+      74: 3312503390928077264
+    second: body|CATRigRArmDigit22|Take 001|BaseLayer
+  - first:
+      74: 7890408623782829171
+    second: body|CATRigRArmDigit23|Take 001|BaseLayer
+  - first:
+      74: 2391829566627302877
+    second: body|CATRigRArmDigit31|Take 001|BaseLayer
+  - first:
+      74: -4857191590914746882
+    second: body|CATRigRArmDigit32|Take 001|BaseLayer
+  - first:
+      74: -1134849898046024853
+    second: body|CATRigRArmDigit33|Take 001|BaseLayer
+  - first:
+      74: -8377783396118566654
+    second: body|CATRigRArmDigit41|Take 001|BaseLayer
+  - first:
+      74: 2321224596579280329
+    second: body|CATRigRArmDigit42|Take 001|BaseLayer
+  - first:
+      74: 2535880581016927828
+    second: body|CATRigRArmDigit43|Take 001|BaseLayer
+  - first:
+      74: -6128757475859134149
+    second: body|CATRigRArmPalm|Take 001|BaseLayer
+  - first:
+      74: 2015150289373961879
+    second: body|CATRigRLeg1|Take 001|BaseLayer
+  - first:
+      74: 4212274476668699691
+    second: body|CATRigRLeg2|Take 001|BaseLayer
+  - first:
+      74: -4712545713674375860
+    second: body|CATRigRLeg3|Take 001|BaseLayer
+  - first:
+      74: -3821269589212733679
+    second: body|CATRigRLegAnkle|Take 001|BaseLayer
+  - first:
+      74: 5361637231940265265
+    second: body|CATRigRLegDigit11|Take 001|BaseLayer
+  - first:
+      74: 6616098234354975268
+    second: body|CATRigRLegDigit12|Take 001|BaseLayer
+  - first:
+      74: 81686778466693083
+    second: body|CATRigRLegDigit13|Take 001|BaseLayer
+  - first:
+      74: -216532187483274200
+    second: body|CATRigRLegDigit21|Take 001|BaseLayer
+  - first:
+      74: 5808756560389812977
+    second: body|CATRigRLegDigit22|Take 001|BaseLayer
+  - first:
+      74: 5593455703207894338
+    second: body|CATRigRLegDigit23|Take 001|BaseLayer
+  - first:
+      74: -7451164345567345422
+    second: body|CATRigRLegDigit31|Take 001|BaseLayer
+  - first:
+      74: -3002378461147907223
+    second: body|CATRigRLegDigit32|Take 001|BaseLayer
+  - first:
+      74: 1956717622347969099
+    second: body|CATRigRLegDigit33|Take 001|BaseLayer
+  - first:
+      74: 2374174522040811962
+    second: body|CATRigRLegPlatform|Take 001|BaseLayer
+  - first:
+      74: 9083102353116309020
+    second: body|CATRigRmidEye|Take 001|BaseLayer
+  - first:
+      74: 1813275030746905320
+    second: body|CATRigRWingArm10|Take 001|BaseLayer
+  - first:
+      74: -9079364074028862000
+    second: body|CATRigRWingArm11|Take 001|BaseLayer
+  - first:
+      74: 614827280788274095
+    second: body|CATRigRWingArm12|Take 001|BaseLayer
+  - first:
+      74: -3211901281117225892
+    second: body|CATRigRWingArm14|Take 001|BaseLayer
+  - first:
+      74: -3681531751850901559
+    second: body|CATRigRWingArm15|Take 001|BaseLayer
+  - first:
+      74: 1925668280980193134
+    second: body|CATRigRWingArm16|Take 001|BaseLayer
+  - first:
+      74: 1386610526989226675
+    second: body|CATRigRWingArm17|Take 001|BaseLayer
+  - first:
+      74: -516452586332829263
+    second: body|CATRigRWingArm18|Take 001|BaseLayer
+  - first:
+      74: 8365567267060877805
+    second: body|CATRigRWingArm19|Take 001|BaseLayer
+  - first:
+      74: 5834416144779702863
+    second: body|CATRigRWingArm1|Take 001|BaseLayer
+  - first:
+      74: -5666435104771504279
+    second: body|CATRigRWingArm20|Take 001|BaseLayer
+  - first:
+      74: 7931727885372313061
+    second: body|CATRigRWingArm21|Take 001|BaseLayer
+  - first:
+      74: 6556148695632959497
+    second: body|CATRigRWingArm2|Take 001|BaseLayer
+  - first:
+      74: -6277189761500555182
+    second: body|CATRigRWingArm3|Take 001|BaseLayer
+  - first:
+      74: -1687045911164527917
+    second: body|CATRigRWingArm4|Take 001|BaseLayer
+  - first:
+      74: -8964047469046313741
+    second: body|CATRigRWingArm5|Take 001|BaseLayer
+  - first:
+      74: 1487688325074496205
+    second: body|CATRigRWingArm6|Take 001|BaseLayer
+  - first:
+      74: -4594601608069828029
+    second: body|CATRigRWingArm7|Take 001|BaseLayer
+  - first:
+      74: -6566205603390720629
+    second: body|CATRigRWingArm8|Take 001|BaseLayer
+  - first:
+      74: -3141373619461995866
+    second: body|CATRigRWingArm9|Take 001|BaseLayer
+  - first:
+      74: -1813672417508491386
+    second: body|CATRigSpine1|Take 001|BaseLayer
+  - first:
+      74: -5255393668624442074
+    second: body|CATRigSpine2|Take 001|BaseLayer
+  - first:
+      74: -8276913745818988787
+    second: body|CATRigSpine3|Take 001|BaseLayer
+  - first:
+      74: 2671569692187844917
+    second: body|CATRigTail1|Take 001|BaseLayer
+  - first:
+      74: 8313640654003341923
+    second: body|CATRigTail2|Take 001|BaseLayer
+  - first:
+      74: -3431616363066228315
+    second: body|CATRigTail3|Take 001|BaseLayer
+  - first:
+      74: -5772375948694071553
+    second: body|CATRigTail4|Take 001|BaseLayer
+  - first:
+      74: 1320581122744857784
+    second: body|CATRigTail5|Take 001|BaseLayer
+  - first:
+      74: -6026035943412386213
+    second: body|CATRigTail6|Take 001|BaseLayer
+  - first:
+      74: 9136621354472998116
+    second: body|CATRigTail7|Take 001|BaseLayer
+  - first:
+      74: 7605759138708335059
+    second: body|CATRigTail8|Take 001|BaseLayer
+  - first:
+      74: -1639970537458728017
+    second: body|CATRigTongue1|Take 001|BaseLayer
+  - first:
+      74: -6823943371707225576
+    second: body|CATRigTongue2|Take 001|BaseLayer
+  - first:
+      74: -3400973868852308464
+    second: body|CATRigTongue3|Take 001|BaseLayer
+  - first:
+      74: 1716035236342853107
+    second: body|CATRigTongue4|Take 001|BaseLayer
+  - first:
+      74: 5910464114067983301
+    second: body|CATRigTongue5|Take 001|BaseLayer
+  - first:
+      74: 8471242944705902805
+    second: body|CATRigTongue6|Take 001|BaseLayer
+  - first:
+      74: -6445965831969773335
+    second: body|CharacterPlatform|Take 001|BaseLayer
+  - first:
+      74: 5463483401895593461
+    second: body|L_Eye|Take 001|BaseLayer
+  - first:
+      74: 8945706886120520566
+    second: body|R_Eye|Take 001|BaseLayer
+  - first:
+      74: -1485273996623855943
+    second: body|tongue_low|Take 001|BaseLayer
+  - first:
+      74: -66685222531552227
+    second: body|tooths_low|Take 001|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
